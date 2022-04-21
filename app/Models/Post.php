@@ -13,6 +13,7 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    //relacion 1 a inversa
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -22,7 +23,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
-    //relacion polimorfica
+    //relacion polimorfica de 1 a 1
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
