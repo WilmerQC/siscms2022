@@ -32,8 +32,8 @@
                     </div>
                 </header>
             @endif
+            @livewire('navigation')
 
-            <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
