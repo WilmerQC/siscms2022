@@ -12,7 +12,7 @@
             @endif
             <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Crear Nueva Categoria</button>
             @if($isOpen)
-                @include('livewire.categoria_create')
+                @include('livewire.category_create')
             @endif
             <table class="table-fixed w-full">
                 <thead>
@@ -27,7 +27,7 @@
                     @foreach($categories as $category)
                     <tr>
                         <td class="border px-4 py-2">{{ $category->id }}</td>
-                        <td class="border px-4 py-2">{{ $category->nombre }}</td>
+                        <td class="border px-4 py-2">{{ $category->name }}</td>
                         <td class="border px-4 py-2">{{ $category->slug }}</td>
                         <td class="border px-4 py-2">
                         <button wire:click="edit({{ $category->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
