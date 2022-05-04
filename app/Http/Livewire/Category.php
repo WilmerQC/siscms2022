@@ -45,8 +45,25 @@ class Category extends Component
             'slug'=>$this->slug
             ]
         );
-        session()->flash('messege','Creado Satisfactoria');
+        session()->flash('message',
+            $this->category_id ? 'Registro actualizado satisfactoriamente' : 'Registro Creado Satisfactoriamente.');
+
         $this->closeModal();
         $this->resetInputsFields();
+    }
+
+    public function edit($id){
+
+        $post = ModelsCategory::findOrFail($id);
+        $this->category_id=$id;
+        $this->name = $post->name;
+        $this->slug = $post->slug;
+
+        $this->openModal();
+    }
+
+    public function delete(ModelsCategory $category){
+        $category->delete();
+        session()->flash('message', 'Registro Eliminado Satisfactoriamente.');
     }
 }
